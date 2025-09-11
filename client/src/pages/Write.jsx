@@ -6,7 +6,8 @@ import "react-quill/dist/quill.snow.css"; // Estilos de ReactQuill
 import { useLocation, useNavigate } from "react-router-dom"; // Hooks para navegación y localización
 import Swal from 'sweetalert2'; // Librería para mostrar alertas personalizadas
 
-
+  /*VARIABLE PARA URL DE RENDER  */
+  const baseURL = process.env.REACT_APP_API_URL || "";
 
 const Write = () => {
 
@@ -27,7 +28,8 @@ const Write = () => {
     try {
       const formData = new FormData(); // Crea FormData para envío tipo multipart
       formData.append("file", file); // Adjunta el archivo
-      const res = await axios.post("/upload", formData); // Envío de imagen
+      //const res = await axios.post("/upload", formData); // Envío de imagen
+         const res = await axios.post(`${baseURL}/upload`, formData);
       return res.data; // Devuelve el nombre de la imagen
     } catch (err) {
       console.log(err); // Muestra errores si falló la subida
@@ -56,7 +58,8 @@ const Write = () => {
     try {
       if (state) {
         // Si hay estado previo, es una edición
-       const res =   await axios.put(`/posts/${state.id}`, {
+         const res = await axios.put(`${baseURL}/posts/${state.id}`, {
+      // const res =   await axios.put(`/posts/${state.id}`, {
           title,
           desc: value,
           cat,
@@ -74,7 +77,9 @@ const Write = () => {
         
       } else {
         // Si no hay estado previo, es una nueva publicación
-       const res= await axios.post(`/posts/`, {
+       //const res= await axios.post(`/posts/`, {
+       
+      const res = await axios.post(`${baseURL}/posts/`, {
           title,
           desc: value,
           cat,

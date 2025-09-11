@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"; // Importa funciones de na
 import { AuthContext } from "../context/authContext"; // Contexto de autenticación
 import Swal from 'sweetalert2';
 
-
+  
 export const Login = () => {
   // Estados para los inputs del formulario y posibles errores
   const [inputs, setInputs] = useState({ username: "", password: "" });

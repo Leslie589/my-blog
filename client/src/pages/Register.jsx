@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom"; // Importa navegación de 
 import axios from "axios"; // Cliente HTTP para solicitudes al backend
 import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
 
+
+  /*VARIABLE PARA URL DE RENDER  */
+  const baseURL = process.env.REACT_APP_API_URL || "";
 export const Register = () => {
   // Estados para inputs del formulario, archivo de imagen, y errores
   const [inputs, setInputs] = useState({ username: "", email: "", password: "",
@@ -21,7 +24,8 @@ export const Register = () => {
     try {
       const formData = new FormData();
       formData.append("file", file); // Adjunta archivo al formulario
-      const res = await axios.post("/upload/users", formData); // Envía al backend
+      const res = await axios.post(`${baseURL}/upload/users`, formData);
+   //   const res = await axios.post("/upload/users", formData); // Envía al backend
       return res.data; // Devuelve el nombre del archivo subido
     } catch (err) {
       console.error("Error al subir imagen:", err);
@@ -34,7 +38,8 @@ export const Register = () => {
     e.preventDefault(); // Previene el comportamiento por defecto del form
     try {
       const img = file ? await upload() : ""; // Subimos imagen si se seleccionó
-      const res = await axios.post("/auth/register", { ...inputs, img }); // Enviamos datos al backend
+      const res = await axios.post(`${baseURL}/auth/register`, { ...inputs, img });
+      //const res = await axios.post("/auth/register", { ...inputs, img }); // Enviamos datos al backend
     await   Swal.fire({
         icon: "success",
         title: "¡Registro exitoso!",
