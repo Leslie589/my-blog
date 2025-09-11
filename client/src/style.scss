@@ -1,0 +1,792 @@
+$colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
+
+.app {
+  .container {
+    width: 100%; // Asegúrate de que ocupe el ancho total
+    max-width: 1200px;
+    margin: 10px auto;
+
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /*Login  */
+    .auth {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: $colorfondo;
+
+
+      h1 {
+        font-size: clamp(
+          1.8rem,
+          4vw,
+          2.25rem
+        ); // mínimo 1.8rem, escala con el viewport, máximo 2.25rem (~36px)
+        color: black;
+    
+        margin-bottom: 33px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        background-color: white;
+        width: 400px;
+        gap: 25px;
+        
+
+        input {
+          font-size: clamp(
+            1rem,
+            2.5vw,
+            1.125rem
+          ); // mínimo 1rem (~16px), escala, máximo 1.125rem (~18px)
+          padding: 12px;
+          border: none;
+          border-bottom: 1px solid gray;
+        }
+
+        button {
+          padding: 12px;
+          border: none;
+          background-color: rgba(255, 145, 0, 0.904);
+          cursor: pointer;
+          color: white;
+          font-size: clamp(1.125rem, 3vw, 1.25rem); // 18px a 20px escalable
+        }
+
+        span {
+          font-size: clamp(1rem, 2.5vw, 1.125rem); // 16px a 18px escalable
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        padding: 0 30px;
+
+        form {
+          width: 100%;
+          max-width: 400px;
+          padding: 30px 25px;
+          margin: 0 auto;
+          box-sizing: border-box;
+          gap: 20px;
+
+          input {
+            font-size: clamp(0.875rem, 3vw, 1rem); // mínimo 14px, máximo 16px
+            padding: 10px;
+          }
+
+          button {
+            font-size: clamp(1rem, 3vw, 1.125rem); // mínimo 16px, máximo 18px
+            padding: 12px;
+          }
+        }
+
+        h1 {
+          font-size: clamp(1.5rem, 5vw, 1.75rem); // mínimo 24px, máximo 28px
+          margin-bottom: 50px;
+          padding: 0 10px;
+          text-align: center;
+        }
+
+        span {
+          font-size: clamp(0.875rem, 3vw, 1rem); // mínimo 14px, máximo 16px
+          padding: 0 10px;
+        }
+
+  
+
+
+
+      }
+      
+    }
+    // NAVBAR (barra de navegación)
+    .navbar {
+      position: relative;
+      background-color: #fff;
+
+      .container {
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+          img {
+            width: 150px;
+          }
+        }
+
+        .links {
+          display: flex;
+          align-items: center;
+          gap: 30px; // más espacio para que no se vea apretado
+          font-size: 24px; // texto más grande
+
+          h6 {
+            font-size: 28px; // títulos más grandes
+            font-weight: bold;
+            font-style: oblique;
+            margin: 0;
+          }
+
+          span {
+            cursor: pointer;
+          }
+
+          .write {
+            background-color: #ff8c00;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 20px; // botón más grande
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+
+            a {
+              text-decoration: none;
+              color: inherit;
+            }
+
+            &:hover {
+              background-color: white;
+              color: #ff8c00;
+              border: 2px solid #ff8c00;
+            }
+          }
+        }
+
+        .menu-toggle {
+          display: none;
+          font-size: 32px;
+          cursor: pointer;
+          z-index: 1001;
+        }
+      }
+
+      #nomuser {
+        display: flex;
+        justify-content: flex-end;
+        gap: 30px;
+        font-size: 25px; // también más grande
+        font-style: oblique;
+        margin-top: -40px;
+        margin-bottom: 50px;
+
+        span {
+          cursor: pointer;
+        }
+      }
+
+      // Menú lateral para móvil (sin cambios)
+      .mobile-menu {
+        position: fixed;
+
+        top: 0;
+        left: -100%;
+        width: 55%;
+        height: 100vh;
+        background-color: white;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 15px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        h6,
+        span,
+        .write {
+     padding-top: 15px;
+          font-size: 15px;
+          margin: 0;
+          line-height: 1.4;
+        }
+
+        .link {
+          text-decoration: none;
+          color: #333;
+          padding: 4px 0;
+          border-bottom: 1px solid #eee;
+        }
+
+        .write {
+          width: 70%;
+          border-radius: 6px;
+          padding:  10px;
+          font-size: 14px;
+          font-weight: bold;
+          text-align: center;
+          background-color: #ff8c00;
+          color: white;
+          border: none;
+          transition: all 0.3s ease;
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+
+          &:hover {
+            background-color: white;
+            color: #ff8c00;
+            border: 2px solid #ff8c00;
+          }
+        }
+
+        .mobile-user {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          font-size: 17px;
+          font-style: oblique;
+
+          span {
+            cursor: pointer;
+          }
+        }
+
+        &.active {
+          left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px 15px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .logo {
+            img {
+              width: 120px;
+            }
+          }
+
+          .links {
+            display: none;
+          }
+
+          .menu-toggle {
+            display: block;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 1001;
+            color: #000;
+            margin-right: 50px; /* separación a la derecha */
+          }
+        }
+
+        #nomuser {
+          display: none;
+        }
+      }
+    }
+
+    //Home
+    .home {
+      .posts {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+
+        .post {
+          display: flex;
+          gap: 100px;
+
+          &:nth-child(2n + 1) {
+            flex-direction: row-reverse;
+          }
+
+          .img {
+            flex: 2;
+            position: relative;
+
+            &::after {
+              content: "";
+              width: 100%;
+              height: 99%;
+              background-color: wheat;
+              position: absolute;
+              top: 20px;
+              left: -20px;
+              z-index: -1;
+              border-radius: 8px; // agregar bordes para que se vea mejor
+            }
+
+            img {
+              width: 100%;
+              max-height: 400px;
+              object-fit: cover;
+              border-radius: 8px;
+              display: block; // eliminar espacios blancos de imagen
+            }
+          }
+
+          .content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+              font-size: 41px;
+            }
+
+            p {
+              font-size: 18px;
+            }
+
+            button {
+              width: max-content;
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              background-color: white;
+              border: 1px solid red;
+              color: black;
+
+              &:hover {
+                border: 1px solid white;
+                background-color: rgb(255, 191, 120);
+                color: black;
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        padding: 0 23px; // Agrego padding al contenedor general para evitar que toque los bordes de la pantalla
+
+        .posts {
+          padding: 0; // elimino padding porque ya lo puse en el contenedor padre
+          gap: 60px;
+
+          .post {
+            flex-direction: column !important;
+            gap: 30px;
+
+            .img {
+              position: relative;
+              flex: none;
+
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: -15px;
+                width: calc(
+                  100% + 15px
+                ); // corregir para que el pseudo elemento no corte la imagen
+                height: 99%;
+                background-color: wheat;
+                z-index: -1;
+                border-radius: 8px; // igual que antes para que el pseudo-elemento se vea bien
+              }
+
+              img {
+                display: block;
+                width: 100%;
+                max-height: 250px;
+                object-fit: cover;
+                border-radius: 8px;
+              }
+            }
+
+            .content {
+              h1 {
+                font-size: 28px;
+              }
+
+              p {
+                font-size: 16px;
+              }
+
+              button {
+                padding: 8px 16px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // SINGLE
+    .single {
+      display: flex; // Flexbox para organizar contenido y menú
+      gap: 40px; // Separación entre contenido principal y menú
+
+      .post-desc {
+        margin-bottom: 12px; // Separación inferior
+        line-height: 1.6; // Altura de línea para mejor lectura
+
+        br {
+          display: block; // Los saltos de línea se muestran como bloques
+          content: ""; // No agrega texto
+          margin-bottom: 10px; // Margen inferior para separar párrafos
+        }
+      }
+      .content {
+        flex: 5; // Ocupa más espacio que el menú
+        display: flex;
+        flex-direction: column; // Organiza contenido en columna
+        gap: 29px; // Espacio entre elementos
+
+        img {
+          width: 100%; // Imagen ocupa todo el ancho del contenedor
+          height: 400px; // Altura fija
+          object-fit: cover; // Recorta la imagen para cubrir el espacio
+          border-radius: 8px;
+        }
+        .user {
+          display: flex; // Flexbox para el usuario
+          align-items: center; // Centra verticalmente la info del usuario
+          gap: 18px; // Espacio entre imagen y texto
+          font-size: clamp(
+            17px,
+            1.5vw,
+            27px
+          ); // Tamaño pequeño para texto de usuario
+
+          img {
+            width: 60px; // Imagen del usuario pequeña
+            height: 60px;
+            border-radius: 50%; // Imagen redonda (avatar)
+            object-fit: cover; // Recorta la imagen para cubrir el espacio
+          }
+
+          span {
+            font-weight: bold; // Texto en negrita para nombre o info destacada
+          }
+        }
+
+        .edit {
+          display: flex; // Flexbox para botones de editar
+          gap: 8px; // Separación entre botones
+
+          img {
+            width: 28px; // Iconos pequeños
+            height: 28px;
+            cursor: pointer; // Cursor pointer para indicar clickeable
+          }
+        }
+
+        h1 {
+          font-size: clamp(43px, 1.5vw, 43px); // Título grande para el post
+         
+          color: #333; // Color gris oscuro para texto
+          text-align: center;
+        }
+
+        p {
+          text-align: justify; // Texto justificado
+          line-height: 30px; // Espaciado entre líneas para facilitar lectura
+          font-size: clamp(14px, 1.5vw, 18px);
+        }
+      }
+
+      .menu {
+        margin-top: -20px;
+        flex: 2; // Menú ocupa menos espacio que el contenido
+        display: flex;
+        flex-direction: column; // Elementos en columna
+        gap: 30px; // Espacio vertical entre elementos del menú
+
+        h1 {
+          font-size: 20px; // Título pequeño para sección menú
+          color: #555; // Color gris medio
+        }
+
+        .post {
+          display: flex; // Flexbox para cada post en el menú
+          flex-direction: column; // Elementos en columna
+          gap: 10px; // Separación entre elementos
+
+          img {
+            width: 100%; // Imagen del post ocupa todo el ancho del menú
+            height: 200px; // Altura fija
+            object-fit: cover; // Recorta la imagen para cubrir el espacio
+          }
+
+          h2 {
+            color: #555; // Título con color gris medio
+          }
+
+          button {
+            width: max-content; // Botón ajustado al contenido
+            padding: 7.5px 15px; // Espaciado interno
+            border: none; // Sin borde por defecto
+            cursor: pointer; // Cursor puntero al pasar mouse
+            color: black; // Texto teal
+            background-color: white; // Fondo blanco
+            border: 1px solid red; // Borde teal
+
+            &:hover {
+              border: 1px solid white; // Borde blanco al hover
+              background-color: rgb(255, 191, 120);
+              color: black; // Texto negro
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      .single {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 40px; // Padding lateral para que no quede pegado
+
+        .content {
+          flex: none;
+          gap: 20px;
+
+          img {
+            width: 100%;
+            height: 300px; // Imagen más pequeña
+            border-radius: 8px; // Un poco de bordes redondeados para suavizar
+            object-fit: cover;
+            margin-bottom: 15px; // Espacio abajo para separar del texto
+          }
+
+          h1 {
+            font-size: 24px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+          }
+
+          p {
+            line-height: 24px;
+            text-align: justify;
+          }
+
+          .user {
+            gap: 10px;
+
+            img {
+              width: 45px;
+              height: 45px;
+            }
+          }
+        }
+
+        .menu {
+          flex: none;
+          gap: 20px;
+          padding: 0 10px;
+
+          h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+
+          .post {
+            gap: 10px;
+
+            img {
+              width: 100%;
+              height: 120px;
+              border-radius: 6px;
+              object-fit: cover;
+            }
+
+            h2 {
+              font-size: 16px;
+              margin-bottom: 5px;
+            }
+
+            button {
+              font-size: 14px;
+              padding: 6px 12px;
+            }
+          }
+        }
+      }
+    }
+
+    // WRITE (Sección para crear contenido)
+    .add {
+      margin-top: 20px; // Margen superior para separar de otros elementos
+      display: flex; // Flexbox para organizar contenido y menú
+      gap: 20px; // Espacio entre contenido y menú
+
+      .content {
+        flex: 5; // Ocupa más espacio
+        display: flex;
+        flex-direction: column; // Organiza elementos en columna
+        gap: 20px; // Separación entre elementos
+
+        input {
+          padding: 10px; // Espacio interno en inputs
+          border: 1px solid lightgray; // Borde gris claro
+        }
+
+        .editorContainer {
+          height: 300px; // Altura fija para el editor
+          overflow: scroll; // Permite scroll cuando el contenido excede altura
+          border: 1px solid lightgrey; // Borde gris claro
+
+          .editor {
+            height: 300px; // Altura fija para el editor de texto
+            border: none; // Sin borde interno
+          }
+        }
+      }
+
+      .menu {
+        flex: 2; // Menú ocupa menos espacio
+        display: flex;
+        flex-direction: column; // Elementos en columna
+        gap: 10px; // Separación entre elementos
+
+        .item {
+          border: 1px solid lightgray; // Borde gris claro
+          padding: 2px; // Espaciado interno pequeño
+          flex: 1; // Toma el espacio disponible
+          display: flex;
+          justify-content: space-between; // Distribuye elementos a los extremos
+          flex-direction: column; // Organiza en columna
+          font-size: 17px; // Texto pequeño
+          color: #555; // Color gris medio
+
+          h1 {
+            font-size: 20px; // Título pequeño
+          }
+
+          .file {
+            text-decoration: underline; // Subraya texto para indicar link o acción
+            cursor: pointer; // Cursor puntero para indicar clickeable
+            color: blue; // Texto azul en móviles
+            text-decoration: underline;
+          }
+
+          .buttons {
+            display: flex; // Flexbox para botones
+            justify-content: space-between; // Separación entre botones
+
+            :first-child {
+              cursor: pointer; // Cursor puntero para el primer botón
+              color: black; // Texto teal
+              background-color: white; // Fondo blanco
+              border: 1px solid red;
+              padding: 4px 5px; // Espaciado interno
+              font-size: 15px;
+            }
+            :last-child {
+              cursor: pointer; // Cursor puntero para el segundo botón
+              color: white; // Texto blanco
+              background-color: rgb(255, 191, 120);
+              border: 1px solid black;
+              padding: 5px 17px; // Espaciado interno
+              font-size: 19px;
+            }
+          }
+
+          .cat {
+            display: flex; // Flexbox para categoría
+            align-items: center; // Centra verticalmente
+            gap: 20px; // Espacio entre elementos
+            color: black; // Color  para texto o íconos
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .add {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+
+        .menu {
+          width: 100%;
+          flex: none;
+
+          .item {
+            h1 {
+              margin-bottom: 15px;
+            }
+
+            // Aquí aplicamos margen a cada <span>
+            span {
+              display: block; // Para que margin funcione bien
+              margin-bottom: 12px; // Espacio entre Estado y Visibilidad
+              font-size: 16px; // Opcional: para que no se vea muy grande
+              color: #333;
+            }
+
+            .file {
+              display: inline-block;
+              margin: 15px 0; // Margen arriba y abajo
+              cursor: pointer;
+              color: blue;
+              text-decoration: underline;
+            }
+
+            .buttons {
+              gap: 15px;
+              margin-top: 10px;
+              display: flex; // Asegúrate que está en flex para el gap
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      position: relative;
+      margin-top: 100px;
+      width: 100%;
+      height: 100px;
+      padding: 0 20px; /* igual a ambos lados */
+      background-color: rgb(255, 178, 112);
+      display: flex;
+      align-items: center;
+      justify-content: center; /* centramos todo */
+
+      font-size: 20px;
+      box-sizing: border-box;
+
+      img {
+        height: 70px;
+        mix-blend-mode: multiply;
+        margin-right: 20px; /* separa imagen del texto */
+      }
+
+      span {
+        /* Sin position absolute */
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 20px 20px; /* menor padding para móviles */
+        font-size: 14px;
+
+        img {
+          height: 50px;
+          margin: 0 0 10px 0; /* margin abajo para separar del texto */
+        }
+      }
+    }
+  }
+}

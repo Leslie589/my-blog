@@ -1,0 +1,13 @@
+# Ignorar archivos de entorno con secretos
+.env
+
+# Ignorar node_modules si usas Node.js
+/node_modules
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar carpetas o archivos temporales
+.DS_Store
+dist/
+build/
