@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     // Hacemos una petición POST a /auth/login enviando los datos
     //const res = await axios.post("/auth/login", inputs);
-      const res = await axios.post(`${baseURL}/auth/login`, inputs);
+      const res = await axios.post(`${baseURL}/api/auth/login`, inputs);
     // Guardamos la respuesta (datos del usuario) en el estado currentUser
     setCurrentUser(res.data);
   };
@@ -31,7 +31,7 @@ const logout = async () => {
   try {
     // Intentamos hacer una petición POST al endpoint '/auth/logout' del backend para cerrar la sesión
    // await axios.post("/auth/logout");
-await axios.post(`${baseURL}/auth/logout`);
+await axios.post(`${baseURL}/api/auth/logout`);
     // Si la petición es exitosa, actualizamos el estado local para eliminar la información del usuario actual
     setCurrentUser(null);
 

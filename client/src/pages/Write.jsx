@@ -29,7 +29,7 @@ const Write = () => {
       const formData = new FormData(); // Crea FormData para envío tipo multipart
       formData.append("file", file); // Adjunta el archivo
       //const res = await axios.post("/upload", formData); // Envío de imagen
-         const res = await axios.post(`${baseURL}/upload`, formData);
+         const res = await axios.post(`${baseURL}/api/upload`, formData);
       return res.data; // Devuelve el nombre de la imagen
     } catch (err) {
       console.log(err); // Muestra errores si falló la subida
@@ -58,7 +58,7 @@ const Write = () => {
     try {
       if (state) {
         // Si hay estado previo, es una edición
-         const res = await axios.put(`${baseURL}/posts/${state.id}`, {
+         const res = await axios.put(`${baseURL}/api/posts/${state.id}`, {
       // const res =   await axios.put(`/posts/${state.id}`, {
           title,
           desc: value,
@@ -79,7 +79,7 @@ const Write = () => {
         // Si no hay estado previo, es una nueva publicación
        //const res= await axios.post(`/posts/`, {
        
-      const res = await axios.post(`${baseURL}/posts/`, {
+      const res = await axios.post(`${baseURL}/api/posts/`, {
           title,
           desc: value,
           cat,
