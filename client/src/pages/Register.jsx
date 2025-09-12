@@ -24,7 +24,7 @@ export const Register = () => {
     try {
       const formData = new FormData();
       formData.append("file", file); // Adjunta archivo al formulario
-    const res = await axios.post(`${baseURL}/upload/users`, formData, { withCredentials: true });
+    const res = await axios.post(`${baseURL}/api/upload/users`, formData, { withCredentials: true });
 
    //   const res = await axios.post("/upload/users", formData); // Envía al backend
       return res.data; // Devuelve el nombre del archivo subido
