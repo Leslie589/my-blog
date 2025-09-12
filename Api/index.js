@@ -60,6 +60,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 
 // Arranca el servidor en el puerto 8800
-app.listen(8800, () => {
+/*app.listen(8800, () => {
   console.log("Servidor conectado!"); // Mensaje cuando el servidor está listo
+});*/
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => {
+  console.log(`Servidor conectado en puerto ${PORT}!`);
 });
