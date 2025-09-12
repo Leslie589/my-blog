@@ -5,9 +5,9 @@ import jwt from "jsonwebtoken"; // Importa jsonwebtoken para manejo de tokens
 
 // FUNCIONES PARA REGISTRO, INICIO DE SESIÓN Y CIERRE DE SESIÓN
 
-
 // Función para registrar un nuevo usuario
 export const register = (req, res) => {
+   console.log("Datos recibidos en register:", req.body); // Aquí imprimes los datos que llegan
 
     if (!req.body.password || req.body.password.length < 8) {
     return res.status(400).json("La contraseña debe tener al menos 8 caracteres");
@@ -32,6 +32,7 @@ export const register = (req, res) => {
       hash,
       req.body.img || "",
     ];
+  console.log("Intentando insertar usuario con valores:", values);
 
     // Ejecuta la inserción en la base de datos
     db.query(q, [values], (err, data) => {
