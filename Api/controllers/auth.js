@@ -39,8 +39,7 @@ export const register = (req, res) => {
       if (err) return res.json(err); // Si error al insertar, responde con error
       return res.status(200).json("El usuario ha sido creado"); // Si éxito, responde con mensaje
     });
-  });
-};
+
  */}
 
 db.query(q, [values], (err, data) => {
@@ -51,7 +50,8 @@ db.query(q, [values], (err, data) => {
   console.log("Usuario insertado correctamente:", data);  // Muestra info exitosa en consola
   return res.status(200).json("El usuario ha sido creado");
 });
-
+  });
+};
 
 
 // Función para iniciar sesión (login)
