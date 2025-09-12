@@ -17,6 +17,7 @@ app.use(cors({
   credentials: true,
 }));
 
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
 
 // Configuración de almacenamiento para archivos subidos relacionados a posts
 const storage = multer.diskStorage({

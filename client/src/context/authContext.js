@@ -3,6 +3,8 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 
+axios.defaults.withCredentials = true;
+
 // Creamos un contexto llamado AuthContext que se usará para compartir estado de autenticación globalmente
 export const AuthContext = createContext()
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react"; // Importa React y hooks
 import { Link, useLocation } from "react-router-dom"; // Para navegación y lectura de URL
 import axios from "axios"; // Cliente HTTP para consumir API
 
-
+  /*VARIABLE PARA URL DE RENDER  */
+  const baseURL = process.env.REACT_APP_API_URL || "";
 export const Home = () => {
   // Estado para almacenar las publicaciones
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,8 @@ export const Home = () => {
     const fetchData = async () => {
       try {
         // Realiza una solicitud GET con la categoría (si hay)
-        const res = await axios.get(`/posts${cat}`);
+   //     const res = await axios.get(`/posts${cat}`);
+         const res = await axios.get(`${baseURL}/api/posts${cat}`);
         setPosts(res.data); // Actualiza el estado con los datos recibidos
       } catch (err) {
         console.log(err); // Muestra errores en consola

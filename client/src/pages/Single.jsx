@@ -83,13 +83,19 @@ const Single = () => {
 
         {/* Imagen principal del post (si existe) */}
         {post.img && (
-          <img src={`../upload/${post.img}`} alt="Imagen del post" />
+
+          <img src={`${baseURL}/upload/${post.img}`} alt="Imagen del post" />
+
+
+        //  <img src={`../upload/${post.img}`} alt="Imagen del post" />
         )}
 
         <div className="user">
           {/* Imagen de perfil del usuario (si existe) */}
           {post.userImg && (
-            <img src={`../upload/users/${post.userImg}`} alt="Imagen de usuario" />
+           
+           <img src={`${baseURL}/upload/users/${post.userImg}`} alt="Imagen de usuario" />
+           // <img src={`../upload/users/${post.userImg}`} alt="Imagen de usuario" />
           )}
 
           <div className="info">
