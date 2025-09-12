@@ -34,15 +34,8 @@ export const register = (req, res) => {
     ];
   console.log("Intentando insertar usuario con valores:", values);
 
- {/*  // Ejecuta la inserción en la base de datos
-    db.query(q, [values], (err, data) => {
-      if (err) return res.json(err); // Si error al insertar, responde con error
-      return res.status(200).json("El usuario ha sido creado"); // Si éxito, responde con mensaje
-    });
 
- */}
-
-db.query(q, [values], (err, data) => {
+db.query(q, values, (err, data) => {
   if (err) {
     console.error("Error al insertar usuario:", err);  // Muestra error detallado en consola
     return res.status(500).json({ error: err.message });  // Envía mensaje de error claro al cliente
@@ -88,3 +81,10 @@ export const logout = (req, res) => {
     secure: true, // La cookie solo se envía sobre HTTPS
   }).status(200).json("Tu sesión ha finalizado..");
 };
+ {/*  // Ejecuta la inserción en la base de datos
+    db.query(q, [values], (err, data) => {
+      if (err) return res.json(err); // Si error al insertar, responde con error
+      return res.status(200).json("El usuario ha sido creado"); // Si éxito, responde con mensaje
+    });
+
+ */}
