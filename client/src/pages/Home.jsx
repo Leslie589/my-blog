@@ -46,7 +46,9 @@ export const Home = () => {
           <div className="post" key={post.id}>
             {/* Imagen del post */}
             <div className="img">
-              <img src={`../upload/${post.img}`} alt="" />
+             {/* <img src={`../upload/${post.img}`} alt="" />*/}
+             <img src={`${baseURL}/uploads/${post.img}`} alt="" />
+
             </div>
 
             {/* Contenido del post */}
