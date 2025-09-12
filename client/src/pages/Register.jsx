@@ -39,7 +39,7 @@ export const Register = () => {
     e.preventDefault(); // Previene el comportamiento por defecto del form
     try {
       const img = file ? await upload() : ""; // Subimos imagen si se seleccionó
- const res = await axios.post(`${baseURL}/auth/register`, { ...inputs, img }, { withCredentials: true });
+ const res = await axios.post(`${baseURL}/api/auth/register`, { ...inputs, img }, { withCredentials: true });
 
       //const res = await axios.post("/auth/register", { ...inputs, img }); // Enviamos datos al backend
     await   Swal.fire({
