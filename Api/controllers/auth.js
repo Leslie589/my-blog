@@ -24,7 +24,7 @@ export const register = (req, res) => {
     const hash = bcrypt.hashSync(req.body.password, salt);
 
     // Consulta para insertar nuevo usuario en la base de datos
-    const q = "INSERT INTO users(`username`, `email`, `password`, `img`) VALUES (?)";
+    const q = "INSERT INTO users(`username`, `email`, `password`, `img`) VALUES (?, ?, ?, ?)";
     // Valores a insertar (contraseña encriptada y opcional imagen)
     const values = [
       req.body.username,
