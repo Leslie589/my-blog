@@ -7,15 +7,16 @@ import multer from "multer"; // Middleware para manejo de subida de archivos (mu
 import cors from "cors";
 import dotenv from "dotenv";  
 
+const app = express(); // Crea una instancia de la aplicación Express
+
+app.use(express.json()); // Middleware para parsear JSON en las solicitudes entrantes
+app.use(cookieParser()); // Middleware para manejar cookies
+
 app.use(cors({
   origin: process.env.FRONTEND_URL, // Aquí usas la variable de entorno
   credentials: true,
 }));
 
-const app = express(); // Crea una instancia de la aplicación Express
-
-app.use(express.json()); // Middleware para parsear JSON en las solicitudes entrantes
-app.use(cookieParser()); // Middleware para manejar cookies
 
 // Configuración de almacenamiento para archivos subidos relacionados a posts
 const storage = multer.diskStorage({
