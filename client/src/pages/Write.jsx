@@ -29,7 +29,7 @@ const Write = () => {
       const formData = new FormData(); // Crea FormData para envío tipo multipart
       formData.append("file", file); // Adjunta el archivo
       //const res = await axios.post("/upload", formData); // Envío de imagen
-         const res = await axios.post(`${baseURL}/api/upload`, formData);
+         const res = await axios.post(`${baseURL}/api/uploads`, formData);
       return res.data; // Devuelve el nombre de la imagen
     } catch (err) {
       console.log(err); // Muestra errores si falló la subida

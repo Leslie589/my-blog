@@ -84,7 +84,7 @@ const Single = () => {
         {/* Imagen principal del post (si existe) */}
         {post.img && (
 
-          <img src={`${baseURL}/upload/${post.img}`} alt="Imagen del post" />
+          <img src={`${baseURL}/uploads/${post.img}`} alt="Imagen del post" />
 
 
         //  <img src={`../upload/${post.img}`} alt="Imagen del post" />
@@ -94,7 +94,7 @@ const Single = () => {
           {/* Imagen de perfil del usuario (si existe) */}
           {post.userImg && (
            
-           <img src={`${baseURL}/upload/users/${post.userImg}`} alt="Imagen de usuario" />
+           <img src={`${baseURL}/uploads/users/${post.userImg}`} alt="Imagen de usuario" />
            // <img src={`../upload/users/${post.userImg}`} alt="Imagen de usuario" />
           )}
 
