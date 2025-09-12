@@ -4,6 +4,13 @@ import userRoutes from "./routes/users.js"; // Rutas relacionadas con usuarios
 import postRoutes from "./routes/posts.js"; // Rutas relacionadas con posts
 import cookieParser from "cookie-parser"; // Middleware para manejar cookies
 import multer from "multer"; // Middleware para manejo de subida de archivos (multipart/form-data)
+import cors from "cors";
+import dotenv from "dotenv";  
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL, // Aquí usas la variable de entorno
+  credentials: true,
+}));
 
 const app = express(); // Crea una instancia de la aplicación Express
 
