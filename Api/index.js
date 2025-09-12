@@ -27,7 +27,7 @@ const __dirname = path.dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "uploads")); // carpeta para posts
+    cb(null, path.join(__dirname, "server/uploads")); // carpeta para posts
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
 
 const userStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "uploads/users")); // carpeta para usuarios
+    cb(null, path.join(__dirname, "server/uploads/users")); // carpeta para usuarios
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -46,14 +46,14 @@ const userStorage = multer.diskStorage({
 const upload = multer({ storage });
 const uploadUser = multer({ storage: userStorage });
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "server/uploads")));
 
 // Rutas de subida de archivos
-app.post("/api/upload", upload.single("file"), (req, res) => {
+app.post("/api/uploads", upload.single("file"), (req, res) => {
   res.status(200).json(req.file.filename);
 });
 
-app.post("/api/upload/users", uploadUser.single("file"), (req, res) => {
+app.post("/api/uploads/users", uploadUser.single("file"), (req, res) => {
   res.status(200).json(req.file.filename);
 });
 
