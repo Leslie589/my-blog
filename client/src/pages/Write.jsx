@@ -73,6 +73,10 @@ const Write = () => {
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
+       }, {
+  withCredentials: true, // <- Esta también
+
+       
         });
         
       } else {
@@ -85,6 +89,9 @@ const Write = () => {
           cat,
           img: imgUrl,
           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Fecha formateada
+       }, {
+  withCredentials: true, // <- ESTA LÍNEA ES CLAVE
+
         });
           Swal.fire({
           icon: 'success',
