@@ -7,6 +7,7 @@ import multer from "multer"; // Middleware para manejo de subida de archivos (mu
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
+
 import dotenv from "dotenv";  
 
 const app = express(); // Crea una instancia de la aplicación Express
