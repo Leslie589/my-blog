@@ -25,6 +25,15 @@ export const db = mysql.createConnection({
 });
 
 
+
+db.connect((err) => {
+  if (err) {
+    console.error("Error conectando a la base de datos:", err);
+    return;
+  }
+  console.log("Conectado a la base de datos MySQL");
+});
+
 {/**import mysql from "mysql";  // Importa el paquete mysql para conectar con la base de datos
 import dotenv from "dotenv";
 
