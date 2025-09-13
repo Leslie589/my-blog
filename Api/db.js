@@ -1,5 +1,5 @@
 
-import mysql from "mysql";
+import mysql from "mysql2";
 import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
