@@ -65,9 +65,17 @@ export const login = (req, res) => {
     const { password, ...other } = data[0];
 
     // Envía la cookie con el token y responde con los datos del usuario (sin contraseña)
-    res.cookie("access_token", token, {
+ {/*  res.cookie("access_token", token, {
       httpOnly: true, // La cookie no es accesible desde JavaScript en el navegador
     }).status(200).json(other);
+*/} 
+
+res.cookie("access_token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+}).status(200).json(other); // Aquí envías la respuesta al frontend con datos del usuario
+
   });
 };
 
