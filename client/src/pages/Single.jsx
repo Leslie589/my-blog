@@ -35,7 +35,9 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-             const res = await axios.get(`${baseURL}/api/posts/${postId}`);
+        const res = await axios.get(`${baseURL}/api/posts/${postId}`, { withCredentials: true });
+
+            // const res = await axios.get(`${baseURL}/api/posts/${postId}`);
        // const res = await axios.get(`/posts/${postId}`); // Petición al backend para obtener el post
         setPost(res.data); // Guarda los datos en el estado
       } catch (err) {
@@ -53,7 +55,9 @@ const Single = () => {
   // Función para eliminar el post actual
   const handleDelete = async () => {
     try {
-        const res = await axios.delete(`${baseURL}/api/posts/${postId}`);
+      const res = await axios.delete(`${baseURL}/api/posts/${postId}`, { withCredentials: true });
+
+        //const res = await axios.delete(`${baseURL}/api/posts/${postId}`);
       //const res = await axios.delete(`/posts/${postId}`); // Envía DELETE al backend
       // Muestra alerta de éxito con SweetAlert2
       Swal.fire({
