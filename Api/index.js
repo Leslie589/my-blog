@@ -8,7 +8,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";  
-dotenv.config();
+
 const app = express(); // Crea una instancia de la aplicación Express
 
 app.use(express.json()); // Middleware para parsear JSON en las solicitudes entrantes

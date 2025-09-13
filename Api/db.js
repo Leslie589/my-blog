@@ -1,4 +1,31 @@
-import mysql from "mysql";  // Importa el paquete mysql para conectar con la base de datos
+
+import mysql from "mysql";
+import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
+dotenv.config();
+
+
+const certPath = path.resolve("c/ca-from-env.pem");
+
+// Crear archivo con certificado decodificado base64
+const decodedCert = Buffer.from(process.env.DB_SSL_CERT, "base64").toString("utf-8");
+fs.writeFileSync(certPath, decodedCert);
+
+export const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  ssl: {
+    ca: fs.readFileSync(certPath),
+    rejectUnauthorized: true,
+  },
+});
+
+
+{/**import mysql from "mysql";  // Importa el paquete mysql para conectar con la base de datos
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -13,4 +40,4 @@ export const db = mysql.createConnection({
   ssl: {
     rejectUnauthorized: true           // Para validar el certificado SSL
   }
-});
+}); */}

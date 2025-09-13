@@ -3,6 +3,9 @@
 
 # Ignorar node_modules si usas Node.js
 /node_modules
+api/ca.pem
+# Ignorar archivo .pem con certificado
+Api/c/ca-from-env.pem
 
 # Ignorar archivos de logs
 *.log
