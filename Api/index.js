@@ -96,8 +96,10 @@ const app = express(); // Crea una instancia de la aplicación Express
 app.use(express.json()); // Middleware para parsear JSON en las solicitudes entrantes
 app.use(cookieParser()); // Middleware para manejar cookies
 
-// Definimos las URLs permitidas en un array desde las variables de entorno
-const allowedOrigins = [process.env.REACT_APP_API_URL, process.env.REACT_APP_API_LOCAL];
+const allowedOrigins = [
+  process.env.REACT_APP_API_URL || 'https://tu-app-en-render.onrender.com',
+  process.env.REACT_APP_API_LOCAL || 'http://localhost:3000',
+];
 
 app.use(cors({
   origin: function(origin, callback){
