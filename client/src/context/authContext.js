@@ -16,13 +16,11 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   /*VARIABLE PARA URL DE RENDER  */
- // const baseURL = process.env.REACT_APP_API_URL || "";
+  const baseURL = process.env.REACT_APP_API_URL || "";
 
 
 
-   const baseURL = process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_API_URL
-    : process.env.REACT_APP_API_LOCAL;
+
   // Función para hacer login: recibe 'inputs' con datos del usuario (email, password, etc)
   const login = async (inputs) => {
     // Hacemos una petición POST a /auth/login enviando los datos

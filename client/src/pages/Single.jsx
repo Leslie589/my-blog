@@ -14,10 +14,8 @@ import Delete from '../img/delete.png'; // Icono de eliminar
 
 
   /*VARIABLE PARA URL DE RENDER  */
-  //const baseURL = process.env.REACT_APP_API_URL || "";
-  const baseURL = process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_API_URL
-    : process.env.REACT_APP_API_LOCAL;
+  const baseURL = process.env.REACT_APP_API_URL || "";
+
     
 // Componente principal que muestra un solo post
 const Single = () => {

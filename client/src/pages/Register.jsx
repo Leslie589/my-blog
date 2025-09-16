@@ -5,11 +5,9 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
 
 
   /*VARIABLE PARA URL DE RENDER  */
- // const baseURL = process.env.REACT_APP_API_URL || "";
+  const baseURL = process.env.REACT_APP_API_URL || "";
 
-  const baseURL = process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_API_URL
-    : process.env.REACT_APP_API_LOCAL;
+
     
  export const Register = () => {
   
