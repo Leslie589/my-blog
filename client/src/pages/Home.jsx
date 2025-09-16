@@ -3,8 +3,13 @@ import { Link, useLocation } from "react-router-dom"; // Para navegación y lect
 import axios from "axios"; // Cliente HTTP para consumir API
 
   /*VARIABLE PARA URL DE RENDER  */
-  const baseURL = process.env.REACT_APP_API_URL || "";
-export const Home = () => {
+  //const baseURL = process.env.REACT_APP_API_URL || "";
+
+  const baseURL = process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_API_URL
+    : process.env.REACT_APP_API_LOCAL;
+
+  export const Home = () => {
   // Estado para almacenar las publicaciones
   const [posts, setPosts] = useState([]);
 

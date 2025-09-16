@@ -7,7 +7,11 @@ import { useLocation, useNavigate } from "react-router-dom"; // Hooks para naveg
 import Swal from 'sweetalert2'; // Librería para mostrar alertas personalizadas
 
   /*VARIABLE PARA URL DE RENDER  */
-  const baseURL = process.env.REACT_APP_API_URL || "";
+ // const baseURL = process.env.REACT_APP_API_URL || "";
+
+  const baseURL = process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_API_URL
+    : process.env.REACT_APP_API_LOCAL;
 
 const Write = () => {
 
@@ -82,6 +86,8 @@ const Write = () => {
       } else {
         // Si no hay estado previo, es una nueva publicación
        //const res= await axios.post(`/posts/`, {
+       
+
        
       const res = await axios.post(`${baseURL}/api/posts/`, {
           title,

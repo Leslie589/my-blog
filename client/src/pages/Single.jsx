@@ -14,8 +14,11 @@ import Delete from '../img/delete.png'; // Icono de eliminar
 
 
   /*VARIABLE PARA URL DE RENDER  */
-  const baseURL = process.env.REACT_APP_API_URL || "";
-
+  //const baseURL = process.env.REACT_APP_API_URL || "";
+  const baseURL = process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_API_URL
+    : process.env.REACT_APP_API_LOCAL;
+    
 // Componente principal que muestra un solo post
 const Single = () => {
   // Estado para guardar los datos del post actual
@@ -37,7 +40,6 @@ const Single = () => {
       try {
         const res = await axios.get(`${baseURL}/api/posts/${postId}`, { withCredentials: true });
 
-            // const res = await axios.get(`${baseURL}/api/posts/${postId}`);
        // const res = await axios.get(`/posts/${postId}`); // Petición al backend para obtener el post
         setPost(res.data); // Guarda los datos en el estado
       } catch (err) {
@@ -57,7 +59,6 @@ const Single = () => {
     try {
       const res = await axios.delete(`${baseURL}/api/posts/${postId}`, { withCredentials: true });
 
-        //const res = await axios.delete(`${baseURL}/api/posts/${postId}`);
       //const res = await axios.delete(`/posts/${postId}`); // Envía DELETE al backend
       // Muestra alerta de éxito con SweetAlert2
       Swal.fire({

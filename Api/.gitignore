@@ -4,6 +4,7 @@
 # Ignorar node_modules si usas Node.js
 /node_modules
 Api/ca.pem
+Api/c/ca-from-env.pem'
 # Ignorar archivo .pem con certificado
 Api/c/ca-from-env.pem
 
