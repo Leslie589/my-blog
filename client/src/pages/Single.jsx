@@ -38,7 +38,7 @@ const Single = () => {
       try {
         const res = await axios.get(`${baseURL}/api/posts/${postId}`, { withCredentials: true });
 
-       // const res = await axios.get(`/posts/${postId}`); // Petición al backend para obtener el post
+      // const res = await axios.get(`/posts/${postId}`); // Petición al backend para obtener el post
         setPost(res.data); // Guarda los datos en el estado
       } catch (err) {
         console.log(err); // Muestra error si ocurre
@@ -90,7 +90,7 @@ const Single = () => {
           <img src={`${baseURL}/uploads/${post.img}`} alt="Imagen del post" />
 
 
-        //  <img src={`../upload/${post.img}`} alt="Imagen del post" />
+        // <img src={`../upload/${post.img}`} alt="Imagen del post" />
         )}
 
         <div className="user">
@@ -98,7 +98,7 @@ const Single = () => {
           {post.userImg && (
            
            <img src={`${baseURL}/uploads/users/${post.userImg}`} alt="Imagen de usuario" />
-           // <img src={`../upload/users/${post.userImg}`} alt="Imagen de usuario" />
+            //<img src={`../upload/users/${post.userImg}`} alt="Imagen de usuario" />
           )}
 
           <div className="info">

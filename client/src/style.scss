@@ -1,8 +1,11 @@
-$colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
+$colorfondo: rgba(255, 187, 98, 0.507); 
+$colortexto: #555;
+$colorhover: rgb(253, 54, 54);
+
 
 .app {
   .container {
-    width: 100%; // Asegúrate de que ocupe el ancho total
+    width: 100%;
     max-width: 1200px;
     margin: 10px auto;
 
@@ -12,7 +15,7 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
       color: inherit;
     }
 
-    /*Login  */
+    /*LOGIN  */
     .auth {
       display: flex;
       flex-direction: column;
@@ -23,13 +26,8 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
 
 
       h1 {
-        font-size: clamp(
-          1.8rem,
-          4vw,
-          2.25rem
-        ); // mínimo 1.8rem, escala con el viewport, máximo 2.25rem (~36px)
+        font-size: clamp(1.8rem, 4vw, 2.25rem); /* Escala de 28.8px a 36px según el ancho del viewport */
         color: black;
-    
         margin-bottom: 33px;
       }
 
@@ -40,14 +38,10 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
         background-color: white;
         width: 400px;
         gap: 25px;
-        
+
 
         input {
-          font-size: clamp(
-            1rem,
-            2.5vw,
-            1.125rem
-          ); // mínimo 1rem (~16px), escala, máximo 1.125rem (~18px)
+          font-size: clamp(1rem, 2.5vw, 1.125rem); // mínimo 1rem (~16px), escala, máximo 1.125rem (~18px)
           padding: 12px;
           border: none;
           border-bottom: 1px solid gray;
@@ -102,17 +96,13 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
           padding: 0 10px;
         }
 
-  
-
-
-
       }
-      
     }
+
+
     // NAVBAR (barra de navegación)
     .navbar {
       position: relative;
-      background-color: #fff;
 
       .container {
         padding: 20px 40px;
@@ -122,20 +112,20 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
 
         .logo {
           img {
-            width: 150px;
+            width: 350px;
+            margin-left: -90px;
           }
         }
 
         .links {
           display: flex;
           align-items: center;
-          gap: 30px; // más espacio para que no se vea apretado
-          font-size: 24px; // texto más grande
+          gap: 20px;
+
 
           h6 {
-            font-size: 28px; // títulos más grandes
+            font-size: 30px;
             font-weight: bold;
-            font-style: oblique;
             margin: 0;
           }
 
@@ -144,11 +134,11 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
           }
 
           .write {
-            background-color: #ff8c00;
-            padding: 12px 28px;
+            background-color: rgba(255, 76, 5, 0.733);
+            padding: 12px 32px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 20px; // botón más grande
+            font-size: 28px;
             color: white;
             border: none;
             transition: all 0.3s ease;
@@ -178,18 +168,20 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
       #nomuser {
         display: flex;
         justify-content: flex-end;
-        gap: 30px;
-        font-size: 25px; // también más grande
+        gap: 45px;
+        font-size: 30px;
         font-style: oblique;
-        margin-top: -40px;
-        margin-bottom: 50px;
+        font-weight: bold;
+        margin-top: -60px;
+        margin-bottom: 60px;
+
 
         span {
           cursor: pointer;
         }
       }
 
-      // Menú lateral para móvil (sin cambios)
+      // Menú lateral para móvil 
       .mobile-menu {
         position: fixed;
 
@@ -202,7 +194,6 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
         padding: 20px 15px;
         transition: left 0.3s ease;
         z-index: 1000;
-
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -210,7 +201,7 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
         h6,
         span,
         .write {
-     padding-top: 15px;
+          padding-top: 15px;
           font-size: 15px;
           margin: 0;
           line-height: 1.4;
@@ -226,11 +217,11 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
         .write {
           width: 70%;
           border-radius: 6px;
-          padding:  10px;
+          padding: 10px;
           font-size: 14px;
           font-weight: bold;
           text-align: center;
-          background-color: #ff8c00;
+          background-color: rgba(255, 76, 5, 0.733);
           color: white;
           border: none;
           transition: all 0.3s ease;
@@ -267,14 +258,15 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
 
       @media (max-width: 768px) {
         .container {
-          padding: 20px 15px;
+          padding: 10px 15px;
           display: flex;
           align-items: center;
           justify-content: space-between;
 
           .logo {
             img {
-              width: 120px;
+              width: 250px;
+              margin-left: -20px;
             }
           }
 
@@ -288,7 +280,7 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
             cursor: pointer;
             z-index: 1001;
             color: #000;
-            margin-right: 50px; /* separación a la derecha */
+            margin-right: 50px;
           }
         }
 
@@ -298,10 +290,12 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
       }
     }
 
-    //Home
+    //HOME
     .home {
+
       .posts {
         margin-top: 50px;
+        margin-bottom: 300px;
         display: flex;
         flex-direction: column;
         gap: 150px;
@@ -317,25 +311,26 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
           .img {
             flex: 2;
             position: relative;
+            padding-left: 8px;
 
             &::after {
               content: "";
               width: 100%;
-              height: 99%;
-              background-color: wheat;
+              height: 100%;
+              background-color: rgba(255, 193, 60, 0.438);
               position: absolute;
-              top: 20px;
+              top: 30px;
               left: -20px;
               z-index: -1;
-              border-radius: 8px; // agregar bordes para que se vea mejor
+              border-radius: 15px;
             }
 
             img {
               width: 100%;
               max-height: 400px;
               object-fit: cover;
-              border-radius: 8px;
-              display: block; // eliminar espacios blancos de imagen
+              border-radius: 16px;
+              display: block;
             }
           }
 
@@ -364,8 +359,8 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
 
               &:hover {
                 border: 1px solid white;
-                background-color: rgb(255, 191, 120);
-                color: black;
+                background-color: $colorhover;
+                color: white;
               }
             }
           }
@@ -373,10 +368,10 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
       }
 
       @media (max-width: 768px) {
-        padding: 0 23px; // Agrego padding al contenedor general para evitar que toque los bordes de la pantalla
+        padding: 0 23px;
 
         .posts {
-          padding: 0; // elimino padding porque ya lo puse en el contenedor padre
+          padding: 0;
           gap: 60px;
 
           .post {
@@ -391,15 +386,13 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
                 content: "";
                 display: block;
                 position: absolute;
-                top: 15px;
-                left: -15px;
-                width: calc(
-                  100% + 15px
-                ); // corregir para que el pseudo elemento no corte la imagen
+                top: 25px;
+                left: -17px;
+                width: calc(100% + 15px);
                 height: 99%;
-                background-color: wheat;
+                background-color: rgba(255, 193, 60, 0.438);
                 z-index: -1;
-                border-radius: 8px; // igual que antes para que el pseudo-elemento se vea bien
+
               }
 
               img {
@@ -407,7 +400,7 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
                 width: 100%;
                 max-height: 250px;
                 object-fit: cover;
-                border-radius: 8px;
+
               }
             }
 
@@ -432,128 +425,129 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
 
     // SINGLE
     .single {
-      display: flex; // Flexbox para organizar contenido y menú
-      gap: 40px; // Separación entre contenido principal y menú
+      display: flex; 
+      gap: 50px; 
 
       .post-desc {
-        margin-bottom: 12px; // Separación inferior
-        line-height: 1.6; // Altura de línea para mejor lectura
+        margin-bottom: 12px; 
+        line-height: 1.6; 
 
         br {
-          display: block; // Los saltos de línea se muestran como bloques
-          content: ""; // No agrega texto
-          margin-bottom: 10px; // Margen inferior para separar párrafos
+          display: block; 
+          content: ""; 
+          margin-bottom: 10px; 
         }
       }
+
       .content {
-        flex: 5; // Ocupa más espacio que el menú
+        flex: 5; 
         display: flex;
-        flex-direction: column; // Organiza contenido en columna
-        gap: 29px; // Espacio entre elementos
+        flex-direction: column; 
+        gap: 29px; 
 
         img {
-          width: 100%; // Imagen ocupa todo el ancho del contenedor
-          height: 400px; // Altura fija
-          object-fit: cover; // Recorta la imagen para cubrir el espacio
+          width: 100%; 
+          height: 450px; 
+          object-fit: cover; 
           border-radius: 8px;
         }
+
         .user {
-          display: flex; // Flexbox para el usuario
-          align-items: center; // Centra verticalmente la info del usuario
-          gap: 18px; // Espacio entre imagen y texto
-          font-size: clamp(
-            17px,
-            1.5vw,
-            27px
-          ); // Tamaño pequeño para texto de usuario
+          display: flex; 
+          align-items: center; 
+          gap: 25px; 
+         font-size: clamp(1.375rem, 1.5vw, 1.5625rem); /* Escala de 22px a 25px según el ancho del viewport */
+
 
           img {
-            width: 60px; // Imagen del usuario pequeña
+            width: 60px; 
             height: 60px;
-            border-radius: 50%; // Imagen redonda (avatar)
-            object-fit: cover; // Recorta la imagen para cubrir el espacio
+            border-radius: 50%; 
+            object-fit: cover; 
           }
 
           span {
-            font-weight: bold; // Texto en negrita para nombre o info destacada
+            font-weight: bold; 
           }
         }
 
         .edit {
-          display: flex; // Flexbox para botones de editar
-          gap: 8px; // Separación entre botones
+          display: flex; 
+          gap: 8px; 
 
           img {
-            width: 28px; // Iconos pequeños
-            height: 28px;
-            cursor: pointer; // Cursor pointer para indicar clickeable
+            width: 32px; 
+            height: 32px;
+            cursor: pointer; 
           }
         }
 
         h1 {
-          font-size: clamp(43px, 1.5vw, 43px); // Título grande para el post
-         
-          color: #333; // Color gris oscuro para texto
+          font-size: clamp(2.6875rem, 2.5vw, 2.8125rem); /* Escala de 43px a 45px según el ancho del viewport */
+          color: #202020; 
           text-align: center;
         }
 
         p {
-          text-align: justify; // Texto justificado
-          line-height: 30px; // Espaciado entre líneas para facilitar lectura
-          font-size: clamp(14px, 1.5vw, 18px);
+          text-align: justify; 
+          line-height: 45px; 
+          font-size: clamp(0.9375rem, 2vw, 1.125rem); /* Escala de 15px a 18px según el ancho del viewport */
+
+
         }
       }
 
       .menu {
         margin-top: -20px;
-        flex: 2; // Menú ocupa menos espacio que el contenido
+        flex: 2;
         display: flex;
-        flex-direction: column; // Elementos en columna
-        gap: 30px; // Espacio vertical entre elementos del menú
+        flex-direction: column; 
+        gap: 30px; 
 
         h1 {
-          font-size: 20px; // Título pequeño para sección menú
-          color: #555; // Color gris medio
+          font-size: 20px; 
+          color: $colortexto; 
         }
 
         .post {
-          display: flex; // Flexbox para cada post en el menú
-          flex-direction: column; // Elementos en columna
-          gap: 10px; // Separación entre elementos
+          display: flex;
+          flex-direction: column; 
+          gap: 10px; 
 
           img {
-            width: 100%; // Imagen del post ocupa todo el ancho del menú
-            height: 200px; // Altura fija
-            object-fit: cover; // Recorta la imagen para cubrir el espacio
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
           }
 
           h2 {
-            color: #555; // Título con color gris medio
+            color: $colortexto; 
           }
 
           button {
-            width: max-content; // Botón ajustado al contenido
-            padding: 7.5px 15px; // Espaciado interno
-            border: none; // Sin borde por defecto
-            cursor: pointer; // Cursor puntero al pasar mouse
-            color: black; // Texto teal
-            background-color: white; // Fondo blanco
-            border: 1px solid red; // Borde teal
+            width: max-content; 
+            padding: 7.5px 15px; 
+            border: none; 
+            cursor: pointer; 
+            color: black; 
+            background-color: white; 
+            border: 1px solid red; 
 
             &:hover {
-              border: 1px solid white; // Borde blanco al hover
-              background-color: rgb(255, 191, 120);
-              color: black; // Texto negro
+              border: 1px solid white; 
+              background-color: $colorhover;
+              color: white; 
             }
           }
         }
       }
-    }
-    @media (max-width: 768px) {
+    
+
+        @media (max-width: 768px) {
       .single {
         flex-direction: column;
         gap: 20px;
-        padding: 0 40px; // Padding lateral para que no quede pegado
+        padding: 0 20px; 
 
         .content {
           flex: none;
@@ -561,29 +555,41 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
 
           img {
             width: 100%;
-            height: 300px; // Imagen más pequeña
-            border-radius: 8px; // Un poco de bordes redondeados para suavizar
+            height: 300px; 
+            border-radius: 8px; 
             object-fit: cover;
-            margin-bottom: 15px; // Espacio abajo para separar del texto
+            margin-bottom: 15px; 
           }
 
           h1 {
-            font-size: 24px;
+            font-size: 26px;
             line-height: 1.2;
             margin-bottom: 10px;
           }
 
           p {
-            line-height: 24px;
+            line-height: 22px;
             text-align: justify;
           }
 
           .user {
-            gap: 10px;
+            gap: 18px;
 
             img {
-              width: 45px;
-              height: 45px;
+              width: 60px;
+              height: 60px;
+            }
+
+          }
+
+          .edit {
+            display: flex;
+            gap: 15px; 
+
+            img {
+              width: 25px; 
+              height: 25px;
+              cursor: pointer; 
             }
           }
         }
@@ -594,7 +600,7 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
           padding: 0 10px;
 
           h1 {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 10px;
           }
 
@@ -621,96 +627,99 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
         }
       }
     }
+    
+    }
+
+   
 
     // WRITE (Sección para crear contenido)
     .add {
-      margin-top: 20px; // Margen superior para separar de otros elementos
-      display: flex; // Flexbox para organizar contenido y menú
-      gap: 20px; // Espacio entre contenido y menú
+      margin-top: 20px; 
+      display: flex; 
+      gap: 20px; 
 
       .content {
-        flex: 5; // Ocupa más espacio
+        flex: 5; 
         display: flex;
-        flex-direction: column; // Organiza elementos en columna
-        gap: 20px; // Separación entre elementos
+        flex-direction: column; 
+        gap: 20px; 
 
         input {
-          padding: 10px; // Espacio interno en inputs
-          border: 1px solid lightgray; // Borde gris claro
+          padding: 10px; 
+          border: 1px solid lightgray; 
         }
 
         .editorContainer {
-          height: 300px; // Altura fija para el editor
-          overflow: scroll; // Permite scroll cuando el contenido excede altura
-          border: 1px solid lightgrey; // Borde gris claro
+          height: 300px; 
+          overflow: scroll; 
+          border: 1px solid lightgrey; 
 
           .editor {
-            height: 300px; // Altura fija para el editor de texto
-            border: none; // Sin borde interno
+            height: 300px; 
+            border: none; 
           }
         }
       }
 
       .menu {
-        flex: 2; // Menú ocupa menos espacio
+        flex: 2; 
         display: flex;
-        flex-direction: column; // Elementos en columna
-        gap: 10px; // Separación entre elementos
+        flex-direction: column; 
+        gap: 10px; 
 
         .item {
-          border: 1px solid lightgray; // Borde gris claro
-          padding: 2px; // Espaciado interno pequeño
-          flex: 1; // Toma el espacio disponible
+          border: 1px solid lightgray; 
+          padding: 2px;
+          flex: 1; 
           display: flex;
-          justify-content: space-between; // Distribuye elementos a los extremos
-          flex-direction: column; // Organiza en columna
-          font-size: 17px; // Texto pequeño
-          color: #555; // Color gris medio
+          justify-content: space-between; 
+          flex-direction: column; 
+          font-size: 17px; 
+          color: $colortexto; 
 
           h1 {
-            font-size: 20px; // Título pequeño
+            font-size: 20px; 
           }
 
           .file {
-            text-decoration: underline; // Subraya texto para indicar link o acción
-            cursor: pointer; // Cursor puntero para indicar clickeable
-            color: blue; // Texto azul en móviles
+            text-decoration: underline; 
+            cursor: pointer; 
+            color: blue; 
             text-decoration: underline;
           }
 
           .buttons {
-            display: flex; // Flexbox para botones
-            justify-content: space-between; // Separación entre botones
+            display: flex; 
+            justify-content: space-between; 
 
             :first-child {
-              cursor: pointer; // Cursor puntero para el primer botón
-              color: black; // Texto teal
-              background-color: white; // Fondo blanco
+              cursor: pointer; 
+              color: black; 
+              background-color: white; 
               border: 1px solid red;
-              padding: 4px 5px; // Espaciado interno
+              padding: 4px 5px; 
               font-size: 15px;
             }
+
             :last-child {
-              cursor: pointer; // Cursor puntero para el segundo botón
-              color: white; // Texto blanco
-              background-color: rgb(255, 191, 120);
+              cursor: pointer; 
+              color: white; 
+              background-color: rgb(253, 157, 48);
               border: 1px solid black;
-              padding: 5px 17px; // Espaciado interno
+              padding: 5px 17px; 
               font-size: 19px;
             }
           }
 
           .cat {
-            display: flex; // Flexbox para categoría
-            align-items: center; // Centra verticalmente
-            gap: 20px; // Espacio entre elementos
-            color: black; // Color  para texto o íconos
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            color: black; 
           }
         }
       }
-    }
-
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
       .add {
         flex-direction: column;
         gap: 20px;
@@ -725,17 +734,17 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
               margin-bottom: 15px;
             }
 
-            // Aquí aplicamos margen a cada <span>
+
             span {
-              display: block; // Para que margin funcione bien
-              margin-bottom: 12px; // Espacio entre Estado y Visibilidad
-              font-size: 16px; // Opcional: para que no se vea muy grande
+              display: block;
+              margin-bottom: 12px;
+              font-size: 16px;
               color: #333;
             }
 
             .file {
               display: inline-block;
-              margin: 15px 0; // Margen arriba y abajo
+              margin: 15px 0;
               cursor: pointer;
               color: blue;
               text-decoration: underline;
@@ -744,47 +753,52 @@ $colorfondo: rgba(255, 179, 112, 0.623); // Definición de un color
             .buttons {
               gap: 15px;
               margin-top: 10px;
-              display: flex; // Asegúrate que está en flex para el gap
+              display: flex;
               justify-content: space-between;
             }
           }
         }
       }
     }
+    }
 
+    
+
+    //FOOTER
     footer {
       position: relative;
-      margin-top: 100px;
       width: 100%;
-      height: 100px;
-      padding: 0 20px; /* igual a ambos lados */
-      background-color: rgb(255, 178, 112);
+      height: 130px;
+      margin-top: 160px;
+      padding: 0 20px;
+      background-color: $colorfondo;
       display: flex;
       align-items: center;
-      justify-content: center; /* centramos todo */
+      justify-content: center;
 
       font-size: 20px;
       box-sizing: border-box;
 
       img {
-        height: 70px;
+        height: 150px;
         mix-blend-mode: multiply;
-        margin-right: 20px; /* separa imagen del texto */
+        margin-right: 20px;
       }
 
       span {
-        /* Sin position absolute */
+
         text-align: center;
       }
 
       @media (max-width: 768px) {
+        height: 130px;
         flex-direction: column;
-        padding: 20px 20px; /* menor padding para móviles */
+        padding: 20px 20px;
         font-size: 14px;
 
         img {
-          height: 50px;
-          margin: 0 0 10px 0; /* margin abajo para separar del texto */
+          height: 80px;
+          margin: 0 0 3px 0;
         }
       }
     }

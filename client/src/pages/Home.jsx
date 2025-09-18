@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"; // Para navegación y lect
 import axios from "axios"; // Cliente HTTP para consumir API
 
   /*VARIABLE PARA URL DE RENDER  */
-  const baseURL = process.env.REACT_APP_API_URL || "";
+ const baseURL = process.env.REACT_APP_API_URL || "";
 
 
   export const Home = () => {
@@ -18,7 +18,7 @@ import axios from "axios"; // Cliente HTTP para consumir API
     const fetchData = async () => {
       try {
         // Realiza una solicitud GET con la categoría (si hay)
-   //     const res = await axios.get(`/posts${cat}`);
+       // const res = await axios.get(`/posts${cat}`);
          const res = await axios.get(`${baseURL}/api/posts${cat}`);
         setPosts(res.data); // Actualiza el estado con los datos recibidos
       } catch (err) {
@@ -48,8 +48,8 @@ import axios from "axios"; // Cliente HTTP para consumir API
           <div className="post" key={post.id}>
             {/* Imagen del post */}
             <div className="img">
-             {/* <img src={`../upload/${post.img}`} alt="" />*/}
-             <img src={`${baseURL}/uploads/${post.img}`} alt="" />
+              <img src={`../upload/${post.img}`} alt="" />
+             {/*<img src={`${baseURL}/uploads/${post.img}`} alt="" />*/}
 
             </div>
 

@@ -30,7 +30,7 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
       formData.append("file", file); // Adjunta archivo al formulario
     const res = await axios.post(`${baseURL}/api/uploads/users`, formData, { withCredentials: true });
 
-   //   const res = await axios.post("/upload/users", formData); // Envía al backend
+     //const res = await axios.post("/upload/users", formData); // Envía al backend
       return res.data; // Devuelve el nombre del archivo subido
     } catch (err) {
       console.error("Error al subir imagen:", err);
@@ -45,7 +45,7 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
       const img = file ? await upload() : ""; // Subimos imagen si se seleccionó
  const res = await axios.post(`${baseURL}/api/auth/register`, { ...inputs, img }, { withCredentials: true });
 
-      //const res = await axios.post("/auth/register", { ...inputs, img }); // Enviamos datos al backend
+ //     const res = await axios.post("/auth/register", { ...inputs, img }); // Enviamos datos al backend
     await   Swal.fire({
         icon: "success",
         title: "¡Registro exitoso!",

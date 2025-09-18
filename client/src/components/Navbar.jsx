@@ -51,10 +51,14 @@ function Navbar() {
             <h6>Comida</h6>
           </Link>
 
+
+
           {/* Enlace para crear una publicación */}
           <span className="write">
             <Link className="link" to="/write">Publicar</Link>
           </span>
+
+          
         </div>
 
         {/* Botón de menú hamburguesa para dispositivos móviles */}

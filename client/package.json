@@ -46,5 +46,6 @@
   "devDependencies": {
     "sass-loader": "^16.0.2"
   },
-  "proxy": "http://localhost:8800/api/"
+  "proxy": "http://localhost:8800/api"
+
 }

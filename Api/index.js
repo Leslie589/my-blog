@@ -9,7 +9,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import dotenv from "dotenv";  
+
 
 const app = express(); // Crea una instancia de la aplicación Express
 
@@ -21,9 +21,59 @@ app.use(cors({
   credentials: true,
 }));
 
-console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+//console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+{/** 
+// Configuración de almacenamiento para archivos subidos relacionados a posts
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../client/public/upload'); // Carpeta donde se guardarán las imágenes de posts
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname); // Nombre único para evitar colisiones (timestamp + nombre original)
+  }
+});
+
+// Configuración de almacenamiento para archivos subidos relacionados a usuarios
+const userStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../client/public/upload/users'); // Carpeta para imágenes de usuarios
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname); // Igual, nombre único con timestamp
+  }
+});
+
+const upload = multer({ storage }); // Middleware multer para posts
+const uploadUser = multer({ storage: userStorage }); // Middleware multer para usuarios
+
+// Ruta para subir imagen de post, recibe un archivo con nombre "file"
+app.post("/api/upload", upload.single("file"), function (req, res) {
+  const file = req.file; // Archivo subido
+  res.status(200).json(file.filename); // Responde con el nombre del archivo guardado
+});
+
+// Ruta para subir imagen de usuario, recibe un archivo con nombre "file"
+app.post("/api/upload/users", uploadUser.single("file"), function (req, res) {
+  const file = req.file; // Archivo subido
+  res.status(200).json(file.filename); // Responde con el nombre del archivo guardado
+});
+
+// Rutas de posts, autenticación y usuarios, usando sus respectivos routers
+app.use("/api/posts", postRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+
+// Arranca el servidor en el puerto 8800
+app.listen(8800, () => {
+  console.log("Servidor conectado!"); // Mensaje cuando el servidor está listo
+});
 
 
+
+
+*/}
+
+ 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

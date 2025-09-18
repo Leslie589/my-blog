@@ -30,7 +30,7 @@ const Write = () => {
     try {
       const formData = new FormData(); // Crea FormData para envío tipo multipart
       formData.append("file", file); // Adjunta el archivo
-      //const res = await axios.post("/upload", formData); // Envío de imagen
+    //  const res = await axios.post("/upload", formData); // Envío de imagen
          const res = await axios.post(`${baseURL}/api/uploads`, formData);
       return res.data; // Devuelve el nombre de la imagen
     } catch (err) {
@@ -42,7 +42,68 @@ const Write = () => {
   const handleClik = async (e) => {
     e.preventDefault(); // Evita el comportamiento por defecto del formulario
 
-      if (!user) {
+
+
+
+   /* 
+    if (!user) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Acceso requerido.',
+        text: "Debes iniciar sesión para publicar.",
+        timer: 3000,
+        showConfirmButton: true,
+      
+      });
+      return;
+    }
+
+    const imgUrl = file ? await upload() : "";
+
+    try {
+      if (state) {
+        // Editar post existente
+        const res = await axios.put(`/posts/${state.id}`, {
+          title,
+          desc: value,
+          cat,
+          img: file ? imgUrl : state.img || "",
+        });
+
+        Swal.fire({
+          icon: 'info',
+          title: res.data,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+
+      } else {
+        // Crear nuevo post
+        const res = await axios.post(`/posts/`, {
+          title,
+          desc: value,
+          cat,
+          img: imgUrl,
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+        });
+
+        Swal.fire({
+          icon: 'success',
+          title: res.data,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+      }
+
+      navigate("/");
+*/
+       if (!user) {
    Swal.fire({
           icon: 'warning',
           title: 'Acceso requerido.',
@@ -61,7 +122,7 @@ const Write = () => {
       if (state) {
         // Si hay estado previo, es una edición
          const res = await axios.put(`${baseURL}/api/posts/${state.id}`, {
-      // const res =   await axios.put(`/posts/${state.id}`, {
+      //const res =   await axios.put(`/posts/${state.id}`, {
           title,
           desc: value,
           cat,
@@ -83,10 +144,7 @@ const Write = () => {
         
       } else {
         // Si no hay estado previo, es una nueva publicación
-       //const res= await axios.post(`/posts/`, {
-       
-
-       
+      // const res= await axios.post(`/posts/`, {
       const res = await axios.post(`${baseURL}/api/posts/`, {
           title,
           desc: value,
