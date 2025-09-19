@@ -1,52 +1,39 @@
-import React, { useState } from "react"; // Importa React y el hook useState
-import { Link, useNavigate } from "react-router-dom"; // Importa navegación de React Router
-import axios from "axios"; // Cliente HTTP para solicitudes al backend
-import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importa los iconos
 
+const baseURL = process.env.REACT_APP_API_URL || "";
 
-  /*VARIABLE PARA URL DE RENDER  */
-  const baseURL = process.env.REACT_APP_API_URL || "";
-
-
-    
- export const Register = () => {
-  
-  // Estados para inputs del formulario, archivo de imagen, y errores
-  const [inputs, setInputs] = useState({ username: "", email: "", password: "",
-  });
+export const Register = () => {
+  const [inputs, setInputs] = useState({ username: "", email: "", password: "" });
   const [file, setFile] = useState(null);
-  // const [err, setError] = useState(null);
-  const navigate = useNavigate(); // Hook para redirigir después del registro
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar
+  const navigate = useNavigate();
 
-  // Manejador para cambios en los inputs del formulario
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Función para subir imagen al servidor
   const upload = async () => {
     try {
       const formData = new FormData();
-      formData.append("file", file); // Adjunta archivo al formulario
-    const res = await axios.post(`${baseURL}/api/uploads/users`, formData, { withCredentials: true });
-
-     //const res = await axios.post("/upload/users", formData); // Envía al backend
-      return res.data; // Devuelve el nombre del archivo subido
+      formData.append("file", file);
+      const res = await axios.post(`${baseURL}/api/uploads/users`, formData, { withCredentials: true });
+      return res.data;
     } catch (err) {
       console.error("Error al subir imagen:", err);
-      return ""; // Si falla, devuelve cadena vacía
+      return "";
     }
   };
 
-  // Manejador del envío del formulario de registro
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del form
+    e.preventDefault();
     try {
-      const img = file ? await upload() : ""; // Subimos imagen si se seleccionó
- const res = await axios.post(`${baseURL}/api/auth/register`, { ...inputs, img }, { withCredentials: true });
-
- //     const res = await axios.post("/auth/register", { ...inputs, img }); // Enviamos datos al backend
-    await   Swal.fire({
+      const img = file ? await upload() : "";
+      const res = await axios.post(`${baseURL}/api/auth/register`, { ...inputs, img }, { withCredentials: true });
+      await Swal.fire({
         icon: "success",
         title: "¡Registro exitoso!",
         text: res.data,
@@ -55,11 +42,9 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
-     
       });
-      navigate("/login"); // Redirige a login después del registro exitoso
+      navigate("/login");
     } catch (err) {
-      // setError(err.response?.data || "Error al registrar"); // Guarda el error en estado
       Swal.fire({
         icon: "error",
         title: "Error al iniciar sesión",
@@ -69,7 +54,6 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
- 
       });
     }
   };
@@ -78,7 +62,6 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
     <div className="auth">
       <h1>Registro</h1>
       <form onSubmit={handleSubmit}>
-        {/* Campos del formulario de registro */}
         <input
           required
           type="text"
@@ -93,26 +76,40 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
           name="email"
           onChange={handleChange}
         />
-        <input
-          required
-          type="password"
-          placeholder="Contraseña"
-          name="password"
-          onChange={handleChange}
-        />
+
+        {/* Contenedor para el input y el icono */}
+        <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+          <input
+            required
+            type={showPassword ? "text" : "password"} // Aquí cambia el tipo dinámicamente
+            placeholder="Contraseña"
+            name="password"
+            onChange={handleChange}
+            style={{ flex: 1, paddingRight: "40px" }} // Espacio para el icono
+          />
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: "absolute",
+              right: "10px",
+              cursor: "pointer",
+              color: "#888",
+              userSelect: "none",
+            }}
+            aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+          >
+            {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+          </span>
+        </div>
+
         <input
           required
           type="file"
           onChange={(e) => setFile(e.target.files[0])}
         />
 
-        {/* Botón para enviar el formulario */}
         <button type="submit">Registrarse</button>
 
-        {/* Muestra error si existe 
-        {err && <p>{err}</p>}*/}
-
-        {/* Enlace para ir a la pantalla de login */}
         <span>
           Ya tienes una cuenta ? <Link to="/login">Inicia sesión </Link>
         </span>
