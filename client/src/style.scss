@@ -541,9 +541,9 @@ $colorhover: rgb(253, 54, 54);
           }
         }
       }
-    
 
-        @media (max-width: 768px) {
+    }
+     @media (max-width: 768px) {
       .single {
         flex-direction: column;
         gap: 20px;
@@ -627,9 +627,6 @@ $colorhover: rgb(253, 54, 54);
         }
       }
     }
-    
-    }
-
    
 
     // WRITE (Sección para crear contenido)
@@ -719,7 +716,9 @@ $colorhover: rgb(253, 54, 54);
           }
         }
       }
-@media (max-width: 768px) {
+
+    }
+    @media (max-width: 768px) {
       .add {
         flex-direction: column;
         gap: 20px;
@@ -759,7 +758,6 @@ $colorhover: rgb(253, 54, 54);
           }
         }
       }
-    }
     }
 
     
