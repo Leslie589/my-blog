@@ -48,8 +48,8 @@ import axios from "axios"; // Cliente HTTP para consumir API
           <div className="post" key={post.id}>
             {/* Imagen del post */}
             <div className="img">
-              <img src={`../upload/${post.img}`} alt="" />
-             {/*<img src={`${baseURL}/uploads/${post.img}`} alt="" />*/}
+             {/*   <img src={`../upload/${post.img}`} alt="" />*/}
+             <img src={`${baseURL}/uploads/${post.img}`} alt="" />
 
             </div>
 
