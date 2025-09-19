@@ -367,7 +367,9 @@ $colorhover: rgb(253, 54, 54);
         }
       }
 
-      @media (max-width: 768px) {
+     
+    }
+ @media (max-width: 768px) {
         padding: 0 23px;
 
         .posts {
@@ -421,8 +423,6 @@ $colorhover: rgb(253, 54, 54);
           }
         }
       }
-    }
-
     // SINGLE
     .single {
       display: flex; 
