@@ -59,7 +59,31 @@ html, body {
           padding: 12px;
           border: none;
           border-bottom: 1px solid gray;
+
+          
         }
+
+        .password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    padding-right: 40px; // Deja espacio para el ícono
+  }
+
+  span {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
 
         button {
           padding: 12px;
