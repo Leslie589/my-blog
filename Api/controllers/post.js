@@ -1,4 +1,4 @@
-import db from "../db.js"; // Importa la conexión a la base de datos
+import {db} from "../db.js"; // Importa la conexión a la base de datos
 import jwt from "jsonwebtoken"; // Importa jsonwebtoken para manejar tokens
 
 

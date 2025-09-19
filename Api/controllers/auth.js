@@ -1,4 +1,4 @@
-import  db  from "../db.js"; // Importa la conexión a la base de datos
+import {db}   from "../db.js"; // Importa la conexión a la base de datos
 import bcrypt from "bcryptjs"; // Importa bcrypt para encriptar contraseñas
 import jwt from "jsonwebtoken"; // Importa jsonwebtoken para manejo de tokens
 
