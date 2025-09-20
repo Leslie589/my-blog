@@ -424,7 +424,7 @@ display: flex;
      
     }
      @media (max-width: 768px) {
-       // padding: 0 20px; 
+       padding: 0 20px; 
 
         .posts {
          
@@ -445,7 +445,7 @@ display: flex;
                 top: 15px;
                 left: -15px;
                 width: calc( 100% + 15px); 
-                height: 70%;
+                height: 50%;
                 background-color: rgba(255, 193, 60, 0.2);
                 z-index: -1;
                 border-radius: 8px; 
