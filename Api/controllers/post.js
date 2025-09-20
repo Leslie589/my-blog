@@ -1,6 +1,6 @@
 import {db} from "../db.js"; // Importa la conexión a la base de datos
 import jwt from "jsonwebtoken"; // Importa jsonwebtoken para manejar tokens
-import moment from "moment";
+
 
 //FUNCIONES PARA BUSCAR POSTS : PUBLICAR UN NUEVO POST , EDITAR O ELIMINAR 
 
@@ -39,7 +39,7 @@ export const addPost = (req, res) => {
 
     
     // Consulta para insertar nuevo post con los datos recibidos y el id del usuario autenticado
-    const q = "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`, `uid`) VALUES (?)"
+    const q = "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`, `uid`) VALUES (?, ?, ?, ?, ? ,?)"
     // Valores para la inserción
     const values = [req.body.title, req.body.desc, req.body.img, req.body.cat, req.body.date, userInfo.id];
     // Ejecuta la inserción
