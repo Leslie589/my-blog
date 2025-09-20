@@ -10,7 +10,7 @@ import parse from 'html-react-parser'; // Permite convertir HTML en JSX seguro
 import Swal from 'sweetalert2'; // Librería para mostrar alertas bonitas
 import Edit from '../img/edit.png'; // Icono de editar
 import Delete from '../img/delete.png'; // Icono de eliminar
-moment.locale("es");
+
 
 
 
@@ -105,7 +105,8 @@ const Single = () => {
           <div className="info">
             {/* Nombre de usuario y fecha del post */}
             <span>{post.username}</span>
-            <p>Publicado el {moment(post.date).format('LLL')}</p>
+           <p>Publicado el {moment.utc(post.date).local().format('LLL')}</p>
+
           </div>
 
           {/* Botones de editar/eliminar solo visibles si el usuario actual es el autor */}

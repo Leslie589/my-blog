@@ -1,6 +1,6 @@
 import {db} from "../db.js"; // Importa la conexión a la base de datos
 import jwt from "jsonwebtoken"; // Importa jsonwebtoken para manejar tokens
-
+import moment from "moment";
 
 //FUNCIONES PARA BUSCAR POSTS : PUBLICAR UN NUEVO POST , EDITAR O ELIMINAR 
 
@@ -36,6 +36,8 @@ export const addPost = (req, res) => {
   if (!token) return res.status(401).json("No autenticado!"); // Si no hay token, no autorizado
   jwt.verify(token, "jwtkey", (err, userInfo) => { // Verifica token
     if (err) return res.status(403).json("Token invalido!"); // Token inválido
+
+    
     // Consulta para insertar nuevo post con los datos recibidos y el id del usuario autenticado
     const q = "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`, `uid`) VALUES (?)"
     // Valores para la inserción
