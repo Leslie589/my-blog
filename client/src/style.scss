@@ -353,11 +353,11 @@ display: flex;
         margin-top: 20px;
         display: flex;
         flex-direction: column;
-        gap: 150px;
+        gap: 40px;
 
         .post {
           display: flex;
-          gap: 100px;
+          gap: 50px;
 
           &:nth-child(2n + 1) {
             flex-direction: row-reverse;
