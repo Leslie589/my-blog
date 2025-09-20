@@ -150,9 +150,7 @@ const Write = () => {
           desc: value,
           cat,
           img: imgUrl,
-         date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Fecha formateada
-       // date: new Date().toISOString(),
-
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Fecha formateada
        }, {
   withCredentials: true, // <- ESTA LÍNEA ES CLAVE
 

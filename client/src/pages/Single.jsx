@@ -13,7 +13,6 @@ import Delete from '../img/delete.png'; // Icono de eliminar
 
 
 
-
   /*VARIABLE PARA URL DE RENDER  */
   const baseURL = process.env.REACT_APP_API_URL || "";
 
@@ -105,8 +104,7 @@ const Single = () => {
           <div className="info">
             {/* Nombre de usuario y fecha del post */}
             <span>{post.username}</span>
-           <p>Publicado el {moment.utc(post.date).local().format('LLL')}</p>
-
+            <p>Publicado el {moment(post.date).format('LLL')}</p>
           </div>
 
           {/* Botones de editar/eliminar solo visibles si el usuario actual es el autor */}
