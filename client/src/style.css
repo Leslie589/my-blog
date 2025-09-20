@@ -283,7 +283,6 @@ html, body {
   }
 }
 .app .container .home .posts {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -346,12 +345,6 @@ html, body {
   color: white;
 }
 @media (max-width: 768px) {
-  .app .container {
-    padding: 0 20px;
-  }
-  .app .container .posts {
-    gap: 60px;
-  }
   .app .container .posts .post {
     flex-direction: column !important;
     gap: 30px;

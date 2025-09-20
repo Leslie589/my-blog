@@ -350,7 +350,7 @@ display: flex;
     //HOME
     .home {
       .posts {
-        margin-top: 20px;
+       // margin-top: 20px;
         display: flex;
         flex-direction: column;
         gap: 40px;
@@ -424,11 +424,11 @@ display: flex;
      
     }
      @media (max-width: 768px) {
-        padding: 0 20px; 
+       // padding: 0 20px; 
 
         .posts {
          
-          gap: 60px;
+          //gap: 60px;
 
           .post {
             flex-direction: column !important;
