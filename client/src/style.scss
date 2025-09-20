@@ -284,7 +284,7 @@ html, body {
 
    @media (max-width: 768px) {
   .container {
-    padding: 10px 2px;
+    padding: 10px 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,7 +295,7 @@ html, body {
 
       img {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
       }
     }
 
@@ -303,7 +303,7 @@ html, body {
       display: flex;
       flex-wrap: wrap; // Permite que se acomoden en 2 renglones si es necesario
       justify-content: center;
-      gap: 6px;
+      gap: 9px;
       width: 100%;
       max-width: 100%;
 
@@ -326,15 +326,18 @@ html, body {
   }
 
  #nomuser {
-  display: flex;
-  justify-content: center;
+
+display: flex;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 20px;
   font-size: 20px;
   font-style: oblique;
   font-weight: bold;
   margin-top: 15px;
-  text-align: center;
+ 
+
+  margin-top: 40px;
 
   span {
     cursor: pointer;
