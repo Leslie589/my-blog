@@ -136,7 +136,7 @@ html, body {
         .logo {
            
           img {
-
+           margin-top: -50px;
            max-width: 100%;
            height: auto;
            display: block;
@@ -424,7 +424,7 @@ display: flex;
      
     }
      @media (max-width: 768px) {
-       padding: 0 26px; 
+       padding: 0 30px; 
 
         .posts {
          
