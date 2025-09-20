@@ -12,8 +12,7 @@ import Swal from "sweetalert2"; // Librería para mostrar alertas personalizadas
  export const Register = () => {
   
   // Estados para inputs del formulario, archivo de imagen, y errores
-  const [inputs, setInputs] = useState({ username: "", email: "", password: "",
-  });
+  const [inputs, setInputs] = useState({ username: "", email: "", password: "",});
   const [file, setFile] = useState(null);
   // const [err, setError] = useState(null);
   const navigate = useNavigate(); // Hook para redirigir después del registro

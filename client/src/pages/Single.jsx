@@ -10,6 +10,7 @@ import parse from 'html-react-parser'; // Permite convertir HTML en JSX seguro
 import Swal from 'sweetalert2'; // Librería para mostrar alertas bonitas
 import Edit from '../img/edit.png'; // Icono de editar
 import Delete from '../img/delete.png'; // Icono de eliminar
+moment.locale("es");
 
 
 

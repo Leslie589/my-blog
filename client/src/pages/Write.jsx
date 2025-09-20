@@ -1,5 +1,5 @@
 import axios from "axios"; // Importa Axios para hacer peticiones HTTP
-import moment from "moment"; // Librería para manejo de fechas
+//import moment from "moment"; // Librería para manejo de fechas
 import React, { useState } from "react"; // Importa React y useState para estado local
 import ReactQuill from "react-quill"; // Editor de texto enriquecido
 import "react-quill/dist/quill.snow.css"; // Estilos de ReactQuill
@@ -150,7 +150,9 @@ const Write = () => {
           desc: value,
           cat,
           img: imgUrl,
-          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Fecha formateada
+        //  date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Fecha formateada
+        date: new Date().toISOString(),
+
        }, {
   withCredentials: true, // <- ESTA LÍNEA ES CLAVE
 
