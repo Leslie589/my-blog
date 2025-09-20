@@ -150,7 +150,8 @@ const Write = () => {
           desc: value,
           cat,
           img: imgUrl,
-          date: moment().toISOString()
+        date: moment().utc().format("YYYY-MM-DD HH:mm:ss")
+
 
           //date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Fecha formateada
        }, {
