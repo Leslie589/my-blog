@@ -9,6 +9,7 @@ $colorhover: rgb(253, 54, 54);
 html, body {
   overflow-x: hidden;
   width: 100%;
+  
 }
 .app {
   overflow-x: hidden;
@@ -36,7 +37,6 @@ html, body {
       align-items: center;
       justify-content: center;
       height: 100vh;
-      
       background-color: $colorfondo;
     
 
@@ -87,8 +87,8 @@ html, body {
 
         form {
           width: 100%;
-          max-width: 400px;
-          padding: 30px 40px;
+          max-width: 370px;
+          padding: 30px 20px;
           margin: 0 auto;
           box-sizing: border-box;
           gap: 20px;
@@ -282,41 +282,66 @@ html, body {
         }
       }
 
-      @media (max-width: 768px) {
-        .container {
-          padding: 10px 3px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+   @media (max-width: 768px) {
+  .container {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
-          .logo {
-               margin-right: 20px;
-            img {
-        
-           width: 100%;
-          max-width: 270px;
-            
-            }
-          }
+    .logo {
+      margin-bottom: 10px;
 
-          .links {
-            display: none;
-          }
-
-          .menu-toggle {
-            display: block;
-            font-size: 32px;
-            cursor: pointer;
-            z-index: 1001;
-            color: #000;
-            margin-right: 30px;
-          }
-        }
-
-        #nomuser {
-          display: none;
-        }
+      img {
+        width: 100%;
+        max-width: 180px;
       }
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap; // Permite que se acomoden en 2 renglones si es necesario
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 100%;
+
+      h6,
+      span {
+        font-size: 16px;
+        white-space: nowrap;
+      }
+
+      .write {
+        font-size: 14px;
+        padding: 8px 12px;
+        white-space: nowrap;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+ #nomuser {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 16px;
+  font-style: oblique;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+
+  span {
+    cursor: pointer;
+  }
+}
+}
+
     }
 
     //HOME
