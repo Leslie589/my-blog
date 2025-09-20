@@ -445,7 +445,7 @@ display: flex;
                 top: 15px;
                 left: -15px;
                 width: calc( 100% + 15px); 
-                height: 99%;
+                height: 70%;
                 background-color: rgba(255, 193, 60, 0.2);
                 z-index: -1;
                 border-radius: 8px; 
@@ -454,8 +454,7 @@ display: flex;
               img {
                 display: block;
                 width: 100%;
-                max-width: 300px;
-                max-height: 300px;
+                max-height: 450px;
                 object-fit: cover;
                 border-radius: 8px;
               }
