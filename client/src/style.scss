@@ -182,13 +182,6 @@ html, body {
             }
           }
         }
-
-        .menu-toggle {
-          display: none;
-          font-size: 32px;
-          cursor: pointer;
-          z-index: 999;
-        }
       }
 
       #nomuser {
@@ -207,80 +200,7 @@ html, body {
         }
       }
 
-      // Menú lateral para móvil 
-      .mobile-menu {
-        position: fixed;
-        overflow-x: hidden;
-        top: 0;
-        left: -100%;
-        width: 60%;
-        height: 100vh;
-        background-color: white;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px 15px;
-        transition: left 0.3s ease;
-        z-index: 999;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-
-        h6,
-        span,
-        .write {
-          padding-top: 15px;
-          font-size: 15px;
-          margin: 0;
-          line-height: 1.4;
-        }
-
-        .link {
-          text-decoration: none;
-          color: #333;
-          padding: 4px 0;
-          border-bottom: 1px solid #eee;
-        }
-
-        .write {
-          width: 70%;
-          border-radius: 6px;
-          padding: 10px;
-          font-size: 14px;
-          font-weight: bold;
-          text-align: center;
-          background-color: rgba(255, 76, 5, 0.733);
-          color: white;
-          border: none;
-          transition: all 0.3s ease;
-
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
-
-          &:hover {
-            background-color: white;
-            color: #ff8c00;
-            border: 2px solid #ff8c00;
-          }
-        }
-
-        .mobile-user {
-          margin-top: 10px;
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          font-size: 17px;
-          font-style: oblique;
-
-          span {
-            cursor: pointer;
-          }
-        }
-
-        &.active {
-          left: 0;
-        }
-      }
+    
 
    @media (max-width: 768px) {
   .container {
@@ -303,7 +223,7 @@ html, body {
       display: flex;
       flex-wrap: wrap; // Permite que se acomoden en 2 renglones si es necesario
       justify-content: center;
-      gap: 9px;
+      gap: 14px;
       width: 100%;
       max-width: 100%;
 
@@ -320,9 +240,7 @@ html, body {
       }
     }
 
-    .menu-toggle {
-      display: none;
-    }
+    
   }
 
  #nomuser {

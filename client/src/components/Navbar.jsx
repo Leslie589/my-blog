@@ -1,5 +1,5 @@
 // Importamos React y los hooks necesarios
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 // Importamos Link para navegación sin recargar
 import { Link } from "react-router-dom";
@@ -12,13 +12,6 @@ function Navbar() {
   // Obtenemos el usuario actual y la función de logout desde el contexto
   const { currentUser, logout } = useContext(AuthContext);
 
-  // Estado para controlar si el menú móvil está abierto
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Función que abre/cierra el menú móvil
-  const toggleMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   return (
     <div className="navbar">
@@ -58,14 +51,8 @@ function Navbar() {
             <Link className="link" to="/write">Publicar</Link>
           </span>
 
-          
+            </div>
         </div>
-
-        {/* Botón de menú hamburguesa para dispositivos móviles */}
-        <div className="menu-toggle" onClick={toggleMenu}>
-          ☰
-        </div>
-      </div>
 
       {/* Información del usuario para escritorio */}
       <div id="nomuser">
@@ -77,37 +64,13 @@ function Navbar() {
         ) : (
           <Link className="link" to="/login">Iniciar sesión</Link>
         )}
-      </div>
+    
 
-      {/* Menú móvil: se muestra solo si isMobileMenuOpen es true */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
-        {/* Enlaces de navegación para móvil */}
-        <Link className="link" to="/?cat=art" onClick={toggleMenu}><h6>Arte</h6></Link>
-        <Link className="link" to="/?cat=science" onClick={toggleMenu}><h6>Ciencia</h6></Link>
-        <Link className="link" to="/?cat=technology" onClick={toggleMenu}><h6>Tecnología</h6></Link>
-        <Link className="link" to="/?cat=cinema" onClick={toggleMenu}><h6>Cine</h6></Link>
-        <Link className="link" to="/?cat=desing" onClick={toggleMenu}><h6>Diseño</h6></Link>
-        <Link className="link" to="/?cat=food" onClick={toggleMenu}><h6>Comida</h6></Link>
-
-        {/* Enlace para publicar desde móvil */}
-        <span className="write" onClick={toggleMenu}>
-          <Link className="link" to="/write">Publicar</Link>
-        </span>
-
-        {/* Usuario en menú móvil */}
-        <div className="mobile-user">
-          {currentUser ? (
-            <>
-              <span>Bienvenido: {currentUser.username}</span>
-              {/* Cerramos sesión y cerramos el menú */}
-              <span onClick={() => { logout(); toggleMenu(); }}>Salir</span>
-            </>
-          ) : (
-            <Link className="link" to="/login" onClick={toggleMenu}>Iniciar sesión</Link>
-          )}
+     
         </div>
       </div>
-    </div>
+    
+  
   );
 }
 
