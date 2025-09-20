@@ -350,10 +350,10 @@ display: flex;
     //HOME
     .home {
       .posts {
-       // margin-top: 20px;
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 60px;
 
         .post {
           display: flex;
@@ -428,7 +428,7 @@ display: flex;
 
         .posts {
          
-          //gap: 60px;
+          gap: 60px;
 
           .post {
             flex-direction: column !important;
@@ -454,7 +454,8 @@ display: flex;
               img {
                 display: block;
                 width: 100%;
-                max-height: 200px;
+                max-width: 170px;
+                max-height: 170px;
                 object-fit: cover;
                 border-radius: 8px;
               }
@@ -602,9 +603,11 @@ display: flex;
     }
      @media (max-width: 768px) {
       .single {
-        flex-direction: column;
+        margin-top: 50px;
+          display: flex;
+       flex-direction: column;
         gap: 20px;
-        padding: 0 20px; 
+        padding:  20px; 
 
         .content {
           flex: none;
