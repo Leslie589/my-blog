@@ -104,7 +104,7 @@ const Single = () => {
           <div className="info">
             {/* Nombre de usuario y fecha del post */}
             <span>{post.username}</span>
-            <p>Publicado el {moment(post.date).format('LLL')}</p>
+            <p>Publicado el {moment.utc(post.date).local().format('LLL')}</p>
           </div>
 
           {/* Botones de editar/eliminar solo visibles si el usuario actual es el autor */}
